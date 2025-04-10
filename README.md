@@ -12,6 +12,13 @@
 git clone <repository>
 ```
 
+버킷 명, 리전 명, aws configure 로 등록한 프로필 명을 입력
+```.env
+AWS_PROFILE=
+AWS_REGION=
+AWS_BUCKET_NAME=
+```
+
 실행 환경 설정
 ```
 pip istall -r requirments.txt
