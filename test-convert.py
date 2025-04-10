@@ -20,6 +20,6 @@ session = Session(profile_name=profile_name)
 s3 = boto3.client('s3', region_name=region_name)
 key = str(uuid.uuid4())
 
-s3.upload_fileobj(tmp_file, bucket_name, key)
+s3.upload_fileobj(tmp_file, bucket_name, key, {'ContentType': 'text/markdown'})
 
 print(f"s3://{bucket_name}/{key} 업로드 완료")
