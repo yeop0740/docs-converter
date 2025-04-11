@@ -28,3 +28,10 @@ pip istall -r requirments.txt
 ```
 python test-convert.py
 ```
+
+## src/main 서버를 실행하려면..
+```shell
+uvicorn src.main:app --reload
+```
+
+`http://127.0.0.1:8000/docs`, `http://127.0.0.1:8000/redoc` 두 API 문서를 자동으로 만들어 준다!
