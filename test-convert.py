@@ -8,9 +8,9 @@ import os
 
 load_dotenv()
 
-profile_name = os.getenv("AWS_PROFILE")
+profile_name = os.getenv("PROFILE")
 region_name = os.getenv("AWS_REGION")
-bucket_name = os.getenv("AWS_BUCKET_NAME")
+bucket_name = os.getenv("CONTENTS_BUCKET")
 
 md = MarkItDown(enable_plugins=False)
 result = md.convert("로그 설정.pdf")
