@@ -1,2 +1,6 @@
-env/*
+env
 .env
+__pycache__
+venv
+.tool-versions
+*.zip

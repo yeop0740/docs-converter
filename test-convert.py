@@ -8,9 +8,9 @@ import os
 
 load_dotenv()
 
-profile_name = os.getenv("AWS_PROFILE")
+profile_name = os.getenv("PROFILE")
 region_name = os.getenv("AWS_REGION")
-bucket_name = os.getenv("AWS_BUCKET_NAME")
+bucket_name = os.getenv("CONTENTS_BUCKET")
 
 md = MarkItDown(enable_plugins=False)
 result = md.convert("로그 설정.pdf")
@@ -20,6 +20,10 @@ session = Session(profile_name=profile_name)
 s3 = boto3.client('s3', region_name=region_name)
 key = str(uuid.uuid4())
 
-s3.upload_fileobj(tmp_file, bucket_name, key, {'ContentType': 'text/markdown'})
+try: 
+    response = s3.upload_fileobj(tmp_file, bucket_name, key, {'ContentType': 'text/markdown'})
+except Exception as e:
+    print(f'[error] {e}')
+    exit(1)
 
 print(f"s3://{bucket_name}/{key} 업로드 완료")
